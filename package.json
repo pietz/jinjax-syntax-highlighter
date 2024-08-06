@@ -1,21 +1,25 @@
 {
-    "name": "jinjax-syntax",
-    "displayName": "JinjaX Syntax Highlighting",
-    "description": "Additional syntax highlighting for JinjaX-specific features",
-    "version": "0.0.1",
-    "engines": {
-      "vscode": "^1.60.0"
-    },
-    "categories": [
-      "Programming Languages"
-    ],
-    "contributes": {
-      "grammars": [
-        {
-          "scopeName": "text.html.jinja.jinjax",
-          "path": "./syntaxes/jinjax.tmlanguage.json",
-          "injectTo": ["text.html.jinja"]
-        }
-      ]
-    }
+  "name": "jinjax-syntax",
+  "version": "0.0.1",
+  "publisher": "pietz",
+  "repository": "https://github.com/pietz/jinjax-syntax-highlighter",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "displayName": "JinjaX Syntax",
+  "description": "Additional syntax highlighting for JinjaX specific components.",
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "scopeName": "text.html.jinja.jinjax",
+        "path": "./syntaxes/jinjax.tmlanguage.json",
+        "injectTo": [
+          "text.html.jinja"
+        ]
+      }
+    ]
   }
+}
