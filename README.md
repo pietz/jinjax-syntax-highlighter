@@ -9,10 +9,10 @@ Syntax Highlighting for JinjaX in VS Code
 This is a simple syntax highlighter for VS Code. I've never written one of these before, so I'd assume there are likely some rough edges and things to improve.
 
 Before:
-![before](https://raw.githubusercontent.com/pietz/jinjax-syntax/main/before.png)
+![before](https://raw.githubusercontent.com/pietz/jinjax-syntax-highlighter/main/before.png)
 
 After:
-![after](https://raw.githubusercontent.com/pietz/jinjax-syntax/main/after.png)
+![after](https://raw.githubusercontent.com/pietz/jinjax-syntax-highlighter/main/after.png)
 
 Happy to accept PRs!
 
