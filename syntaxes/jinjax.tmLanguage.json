@@ -1,0 +1,140 @@
+{
+	"scopeName": "text.html.jinja.jinjax",
+	"injectionSelector": "L:text.html.jinja",
+	"patterns": [
+		{
+			"include": "#component-usage"
+		},
+		{
+			"include": "#component-definition"
+		}
+	],
+	"repository": {
+		"component-usage": {
+			"patterns": [
+				{
+					"name": "meta.tag.custom.jinjax",
+					"begin": "(</?)(\\b[A-Z][a-zA-Z0-9]*\\b)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.tag.begin.html"
+						},
+						"2": {
+							"name": "entity.name.type.class.jinjax"
+						}
+					},
+					"end": "(>)|(/?>)",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.definition.tag.end.html"
+						},
+						"2": {
+							"name": "punctuation.definition.tag.end.html"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#tag-attributes"
+						}
+					]
+				}
+			]
+		},
+		"component-definition": {
+			"name": "meta.component.definition.jinjax",
+			"begin": "({#)(\\s*def\\b)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.definition.comment.begin.jinja"
+				},
+				"2": {
+					"name": "keyword.control.def.jinjax"
+				}
+			},
+			"end": "(#})",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.comment.end.jinja"
+				}
+			},
+			"patterns": [
+				{
+					"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)?",
+					"captures": {
+						"1": {
+							"name": "variable.parameter.jinjax"
+						},
+						"2": {
+							"name": "keyword.operator.assignment.jinjax"
+						}
+					}
+				},
+				{
+					"include": "#string-double-quoted"
+				},
+				{
+					"include": "#string-single-quoted"
+				},
+				{
+					"match": "\\b\\d+\\b",
+					"name": "constant.numeric.jinjax"
+				}
+			]
+		},
+		"tag-attributes": {
+			"patterns": [
+				{
+					"match": "\\b([a-zA-Z0-9_-]+)\\s*(=)",
+					"captures": {
+						"1": {
+							"name": "entity.other.attribute-name.html"
+						},
+						"2": {
+							"name": "punctuation.separator.key-value.html"
+						}
+					}
+				},
+				{
+					"include": "#string-double-quoted"
+				},
+				{
+					"include": "#string-single-quoted"
+				}
+			]
+		},
+		"string-double-quoted": {
+			"name": "string.quoted.double.html",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"include": "#jinja-interpolated"
+				}
+			]
+		},
+		"string-single-quoted": {
+			"name": "string.quoted.single.html",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"include": "#jinja-interpolated"
+				}
+			]
+		},
+		"jinja-interpolated": {
+			"patterns": [
+				{
+					"begin": "{{",
+					"end": "}}",
+					"name": "meta.embedded.jinja",
+					"patterns": [
+						{
+							"include": "text.html.jinja"
+						}
+					]
+				}
+			]
+		}
+	}
+}

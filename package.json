@@ -1,0 +1,21 @@
+{
+    "name": "jinjax-syntax",
+    "displayName": "JinjaX Syntax Highlighting",
+    "description": "Additional syntax highlighting for JinjaX-specific features",
+    "version": "0.0.1",
+    "engines": {
+      "vscode": "^1.60.0"
+    },
+    "categories": [
+      "Programming Languages"
+    ],
+    "contributes": {
+      "grammars": [
+        {
+          "scopeName": "text.html.jinja.jinjax",
+          "path": "./syntaxes/jinjax.tmlanguage.json",
+          "injectTo": ["text.html.jinja"]
+        }
+      ]
+    }
+  }
